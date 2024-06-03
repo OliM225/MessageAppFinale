@@ -5,7 +5,6 @@ import com.facebook.react.ReactActivityDelegate
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.fabricEnabled
 import com.facebook.react.defaults.DefaultReactActivityDelegate
 import android.os.Bundle
-import org.devio.rn.splashscreen.SplashScreenReactPackage;
 
 class MainActivity : ReactActivity() {
 
@@ -14,8 +13,7 @@ class MainActivity : ReactActivity() {
    * rendering of the component.
    */
     override fun onCreate(savedInstanceState: Bundle?) {
-      splashscreen.show(this)
-      super.onCreate(savedInstanceState)
+      super.onCreate(null)
     }
   override fun getMainComponentName(): String = "MessageApp"
  
