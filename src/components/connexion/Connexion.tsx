@@ -8,7 +8,7 @@ const Connexion = ({ navigation }: any) => {
     const dispatch = useDispatch();
     return (
         <View>
-            {isSignedIn ? <Text style={styles.text}>Connecte:Welcome to ChatApp</Text> : <Text style={styles.text}>You're Disconnected</Text>}
+            {isSignedIn ? <Text style={styles.text}>Connected:Welcome to ChatApp</Text> : <Text style={styles.text}>You're Disconnected</Text>}
             <View style={styles.container}>
                 <TextInput
                     style={styles.textInput}
