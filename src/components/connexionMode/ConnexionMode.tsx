@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Image } from "react-native";
 import styles from "./ConnexionModeStyle";
-
 const ConnexionMode = ({ source }) => {
     return (
         <View

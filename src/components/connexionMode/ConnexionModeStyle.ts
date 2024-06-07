@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-
 const styles = StyleSheet.create({
     container: {
         height: 70,
@@ -16,5 +15,4 @@ const styles = StyleSheet.create({
         width: 40,
     },
 })
-
 export default styles;

@@ -1,0 +1,39 @@
+import { StyleSheet } from "react-native";
+const styles = StyleSheet.create({
+    utilisateur:{
+        textAlign:"center",
+        padding:20,
+        fontWeight:"bold",
+        color:"black",
+        fontSize:30,
+        paddingBottom:50
+    },
+    input:{
+        borderWidth:2,
+        marginHorizontal:20, 
+        marginVertical:15, 
+        paddingLeft:20,
+        borderRadius:20,
+    },
+    buttonContainer:{
+        flexDirection:"row",
+        paddingHorizontal:70,
+        marginVertical:30,
+    },
+    touch:{
+        paddingVertical:5, 
+        backgroundColor:"#ffc107",
+        borderWidth:2,
+        borderRadius:7,
+        width:100,
+        height:45,
+        marginHorizontal:5
+    },
+    touchableText:{
+        textAlign:"center", 
+        color:"black",
+        fontSize:25,
+        fontWeight:"bold"
+    },
+})
+export default styles;

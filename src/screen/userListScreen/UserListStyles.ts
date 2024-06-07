@@ -17,33 +17,44 @@ const styles = StyleSheet.create({
         color: "white",
         fontWeight: "bold"
     },
-    messageType:{
-        flexDirection: "row", 
+    messageType: {
+        flexDirection: "row",
         margin: 20,
     },
-    plusContainer:{
-        width:50,
-        marginHorizontal:30,
-        height:50, 
-        borderRadius:25, 
-        backgroundColor:"#ffc107", 
-        alignSelf:"flex-end",
+    plusContainer: {
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        backgroundColor: "#ffc107",
+        alignSelf: "flex-end",
+        marginHorizontal: 10,
+        marginVertical: -50
+
     },
-    plus:{
-        alignSelf:"center",
-        fontWeight:"bold", 
-        fontSize:45,
-        color:"black"
+    plus: {
+        alignSelf: "center",
+        fontWeight: "bold",
+        fontSize: 28,
+        color: "black"
+    },
+    chat: {
+        marginHorizontal: 30,
+        marginVertical: 10,
+        color: "black",
+        fontSize: 30,
+        fontWeight: "bold",
+    },
+    chatSpec: {
+        color: "#ffc107",
     },
     textInput: {
         backgroundColor: "lightgrey",
-        opacity: 0.2,
-        borderColor: "grey",
         marginHorizontal: 20,
         borderRadius: 25,
         height: 45,
         paddingLeft: 20,
-        color: "black"
+        color: "black",
+        fontWeight: "bold"
     },
 })
 export default styles;

@@ -1,4 +1,6 @@
-import utilisateur, { messageModel, room } from "../Models/Utilisateur";
+import MessageModel from "../Models/MessageModel";
+import Room from "../Models/RoomModel";
+import utilisateur from "../Models/Utilisateur";
 export const usersData = <utilisateur[]>[
     { id: 1, name: "oli" },
     { id: 2, name: "yann" },
@@ -13,13 +15,13 @@ export const usersData = <utilisateur[]>[
     { id: 11, name: "Test" },
 
 ]
-export const usersMessages = <messageModel[]>[
+export const usersMessages = <MessageModel[]>[
     { id: 1, senderId: 5, receiverId: 1, text: "hello", roomId: 1, date: new Date().toDateString() },
     { id: 2, senderId: 5, receiverId: 2, text: "hello", roomId: 2, date: new Date().toDateString() },
     { id: 3, senderId: 1, receiverId: 3, text: "diff", roomId: 3, date: new Date().toDateString() },
     { id: 4, senderId: 1, receiverId: 4, text: "voir", roomId: 4, date: new Date().toDateString() },
 ]
-export const chatRooms = <room[]>[
+export const chatRooms = <Room[]>[
     { id: 1, name: "chat1", user1: 1, user2: 3 },
     { id: 2, name: "chat2", user1: 2, user2: 6 },
     { id: 3, name: "chat3", user1: 3, user2: 1 },

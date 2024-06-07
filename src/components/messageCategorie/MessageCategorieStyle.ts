@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-
 const styles = StyleSheet.create({
     text: {
         borderRadius: 25,
@@ -12,5 +11,4 @@ const styles = StyleSheet.create({
         fontWeight:"bold",
     },
 })
-
 export default styles;

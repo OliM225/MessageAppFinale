@@ -41,6 +41,5 @@ const Connexion = ({ navigation }: any) => {
                 <Text style={styles.notMember}> Not a member ? <Text style={styles.register}>Register now</Text></Text>
             </View>
         </View>)
-
 }
 export default Connexion;

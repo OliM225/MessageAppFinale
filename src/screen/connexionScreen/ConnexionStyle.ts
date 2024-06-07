@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
         color: "white",
     },
     touch: {
-        marginHorizontal: 30,
+        marginHorizontal: 50,
         backgroundColor: "#ffc107",
         width: 300,
         borderRadius: 10,

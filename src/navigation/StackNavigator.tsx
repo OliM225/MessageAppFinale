@@ -8,7 +8,7 @@ export default function StackNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Connexion" options={{ headerShown:false }} component={Connexion} />
-      <Stack.Screen name="Users" component={UserListScreen} />
+      <Stack.Screen name="Users" component={UserListScreen} options={{ headerShown:false }} />
       <Stack.Screen name="Chat" component={ChatRoomScreen} />
       <Stack.Screen name="Ajout" component={AjoutInterlocuteur} options={{ headerShown:false }} />
     </Stack.Navigator>

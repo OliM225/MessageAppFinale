@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Button, Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { insertNewUser } from "../../store/userActions";
+import styles from "./AjoutInterlocuteurStyle";
 const AjoutInterlocuteur = ({navigation})=>{
     const[username, setUsername] = useState<string>("");
     const { usersList } = useSelector((state: RootState) => state.userData)
@@ -14,15 +15,18 @@ const AjoutInterlocuteur = ({navigation})=>{
     }
     return(
         <View>
-            <Text style={{textAlign:"center",padding:20}}>Ajouter un nouvel interlocuteur</Text>
-            <TextInput style={{borderWidth:2,marginHorizontal:20, marginVertical:15, paddingLeft:20}} 
+            <Text style={styles.utilisateur}>Ajouter un nouvel interlocuteur</Text>
+            <TextInput style={styles.input} 
             placeholder="username..." 
             value={username}
             onChangeText={(name)=>setUsername(name)}/>
-            
-            <View style={{flexDirection:"row",paddingHorizontal:100}}>
-            <Button onPress={() =>(setUsername(""),navigation.navigate("Users"))} title="Retour"/>
-            <Button onPress={() =>(AjoutInterlocuteurHandler(),navigation.navigate("Users"))} title="Confirmer"/>
+            <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.touch} onPress={() =>(setUsername(""),navigation.navigate("Users"))}>
+                <Text style={styles.touchableText}>Retour</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.touch} onPress={() =>(AjoutInterlocuteurHandler(),navigation.navigate("Users"))}>
+                <Text style={styles.touchableText}>Ajouter</Text>
+            </TouchableOpacity>
             </View>
         </View>
     )
