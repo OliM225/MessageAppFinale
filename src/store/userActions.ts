@@ -1,15 +1,16 @@
-import axios from "axios"
-import { LOGIN, LOGOUT, CHANGE_NAME,
-GET_USER_BOOKS, CHANGE_CHAT_ROOM_USER,
+import { LOGIN, LOGOUT, CHANGE_NAME, CHANGE_CHAT_ROOM_USER,
 GET_USER_USERS, GET_MESSAGES, 
 INSERT_NEW_MESSAGE,
 SET_USER_CONNECTED_ID,
 SET_RECEIVER_ID,
 GET_USER_ROOMS,
-SET_CHOSEN_ROOM_ID} from "./types"
+SET_CHOSEN_ROOM_ID,
+INSERT_NEW_USER} from "./types"
 import { Dispatch } from "redux"
-import utilisateur, { messageModel, room } from "../Models/Utilisateur"
+import utilisateur from "../Models/Utilisateur"
 import { chatRooms, usersData, usersMessages } from "../data/usersData"
+import MessageModel from "../Models/MessageModel"
+import Room from "../Models/RoomModel"
 
 export const loginAction = () => {
     return {
@@ -38,23 +39,6 @@ export const changeChatRoomUser = (name:string) =>{
         payload:name
     }
 }
-
-export const getUsersBooks = () => {
-    return async (dispatch: Dispatch) => {
-        try {
-            const {data} = await axios.get("https://649ea51c245f077f3e9cb5bc.mockapi.io/books");
-
-            dispatch({
-                type: GET_USER_BOOKS,
-                payload: data
-            })
-        } catch (error) {
-            console.log(error)
-        }
-
-    }
-}
-
 export const getUserUsers = () => {
     return (dispatch:Dispatch) =>{
         try{
@@ -73,7 +57,7 @@ export const getUserUsers = () => {
 export const getMessages = () => {
     return (dispatch:Dispatch) =>{
         try{
-            const data:messageModel[] = usersMessages
+            const data:MessageModel[] = usersMessages
             dispatch({
                 type:GET_MESSAGES,
                 payload:data
@@ -88,7 +72,7 @@ export const getMessages = () => {
 export const getChatRooms = () => {
     return (dispatch:Dispatch) =>{
         try{
-            const data:room[] = chatRooms
+            const data:Room[] = chatRooms
             dispatch({
                 type:GET_USER_ROOMS,
                 payload:data
@@ -100,10 +84,17 @@ export const getChatRooms = () => {
     }
 }
 
-export const insertNewMessage = (msg:messageModel[]) =>{
+export const insertNewMessage = (msg:MessageModel[]) =>{
     return {
         type:INSERT_NEW_MESSAGE,
         payload:msg,
+    }
+}
+
+export const insertNewUser = (user:utilisateur[]) =>{
+    return{
+        type:INSERT_NEW_USER,
+        payload:user,
     }
 }
 

@@ -1,6 +1,11 @@
-import { LOGIN, LOGOUT, CHANGE_NAME, GET_USER_BOOKS, CHANGE_CHAT_ROOM_USER, GET_USER_USERS, GET_MESSAGES, INSERT_NEW_MESSAGE, SET_USER_CONNECTED_ID, SET_RECEIVER_ID, GET_USER_ROOMS, SET_CHOSEN_ROOM_ID } from "./types"
-import utilisateur, { messageModel, room } from "../Models/Utilisateur"
-
+import { LOGIN, LOGOUT, CHANGE_NAME, GET_USER_BOOKS,
+         CHANGE_CHAT_ROOM_USER, GET_USER_USERS, GET_MESSAGES,
+         INSERT_NEW_MESSAGE, SET_USER_CONNECTED_ID, 
+         SET_RECEIVER_ID, GET_USER_ROOMS, SET_CHOSEN_ROOM_ID, 
+         INSERT_NEW_USER} from "./types"
+import utilisateur from "../Models/Utilisateur"
+import Room from "../Models/RoomModel"
+import MessageModel from "../Models/MessageModel"
 const initialState = {
     isSignedIn:false,
     username: "Test",
@@ -9,15 +14,13 @@ const initialState = {
     userReceiverId:0,
     userBooks: [],
     usersList:<utilisateur[]>[],
-    chatRoom:<room[]>[],
-    sentMessage:<messageModel[]>[]
+    chatRoom:<Room[]>[],
+    sentMessage:<MessageModel[]>[]
 }
-
 type ActionType = {
     type:string,
      payload: any
 }
-
 export default (state = initialState, {type, payload}:ActionType) => {
 
     switch(type){
@@ -39,6 +42,8 @@ export default (state = initialState, {type, payload}:ActionType) => {
             return {...state, chatRoom:payload}
         case INSERT_NEW_MESSAGE:
             return {...state, sentMessage:payload}
+        case INSERT_NEW_USER:
+            return {...state,usersList:payload}
         case SET_USER_CONNECTED_ID:
             return {...state, userConnectedId:payload}
         case SET_RECEIVER_ID:

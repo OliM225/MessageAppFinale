@@ -1,12 +1,12 @@
-import { Button, FlatList, KeyboardAvoidingView, ListRenderItem, Pressable, Text, View } from "react-native"
+import { FlatList, KeyboardAvoidingView, ListRenderItem, Pressable, Text, View } from "react-native"
 import { useState } from "react";
 import Message from "../../components/Message/Message";
 import styles from "./ChatRoomScreenStyles";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { insertNewMessage } from "../../store/userActions";
-import { messageModel } from "../../Models/Utilisateur";
 import { TextInput } from "react-native-gesture-handler";
+import MessageModel from "../../Models/MessageModel";
 
 const ChatRoomScreen = ({ navigation }: any) => {
     const [content, setContent] = useState<string>("");
@@ -20,12 +20,11 @@ const ChatRoomScreen = ({ navigation }: any) => {
     const tab = sentMessage.filter((tab) => {
         return ((tab.senderId === userConnectedId || tab.senderId === userReceiverId) && (tab.receiverId === userReceiverId || tab.receiverId === userConnectedId))
     });
-    const renderItem: ListRenderItem<messageModel> = ({ item }) => {
+    const renderItem: ListRenderItem<MessageModel> = ({ item }) => {
         return <Message id={item.senderId}>{item.text}</Message>
     }
     return (
         <KeyboardAvoidingView style={styles.keyboard} >
-            <Text style={{ textAlign: "center", fontSize: 15, fontWeight: "bold" }}>{userConnectedId} {userReceiverId}</Text>
             <FlatList
                 data={tab}
                 renderItem={renderItem}
@@ -33,12 +32,11 @@ const ChatRoomScreen = ({ navigation }: any) => {
                 contentContainerStyle={styles.flatList}
             />
             <View style={styles.container}>
-                <TextInput style={styles.input} value={content} onChangeText={setContent} />
+                <TextInput style={styles.input} value={content} onChangeText={setContent} placeholder="Message..." />
                 <Pressable onPress={onSend}>
-                    <Text>Envoyer</Text>
+                    <Text style={styles.envoyerButton}>Send</Text>
                 </Pressable>
             </View>
-            <Button title="Home" onPress={() => navigation.navigate("Connexion")} />
         </KeyboardAvoidingView>
     )
 }

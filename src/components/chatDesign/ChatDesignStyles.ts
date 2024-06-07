@@ -3,8 +3,9 @@ const styles = StyleSheet.create({
     pressable: {
         flexDirection: "row",
         borderBottomColor: "black",
-        borderBottomWidth: 2,
-        backgroundColor: "lightgrey",
+        borderBottomWidth: 1,
+        backgroundColor: "white",
+        marginRight: 20,
     },
     pressableChat: {
         flexDirection: "row",
@@ -22,6 +23,5 @@ const styles = StyleSheet.create({
         height: 70,
         borderRadius: 90
     },
-
 })
 export default styles;
